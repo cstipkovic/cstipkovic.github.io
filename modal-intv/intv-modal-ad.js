@@ -53,6 +53,10 @@
 		w.location = 'http://intvbrasil.com.br';
 	}
 
+	function closeModal() {
+		d.getElementById('overlay-intv').style.display = "none";
+	}
+
 	function clickToPlay() {
 		var video = d.getElementById('video-intv-ad');
 
@@ -60,6 +64,6 @@
 	}
 
 	d.body.appendChild(buildModal());
-	d.getElementById('video-intv-ad').addEventListener('ended', redirectTo, false);
+	d.getElementById('video-intv-ad').addEventListener('ended', closeModal, false);
 	d.getElementById('video-intv-ad').addEventListener('click', clickToPlay, false);
 })(document, window);
