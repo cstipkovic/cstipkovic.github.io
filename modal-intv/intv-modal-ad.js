@@ -1,4 +1,4 @@
-(function(d) {
+(function(d, w) {
 	function setCloseButton() {
 		var closeButton = d.createElement('span');
 
@@ -16,6 +16,7 @@
 
 		linkDestination.setAttribute('href', 'http://intvbrasil.com.br');
 
+		videoTag.id = 'video-intv-ad';
 		videoTag.setAttribute('autoplay', true);
 
 		videoSource.setAttribute('src', 'http://www.w3schools.com/tags/movie.mp4');
@@ -56,5 +57,10 @@
 		return setOverlayModal();
 	}
 
+	function redirectTo() {
+		w.location = 'http://intvbrasil.com.br';
+	}
+
 	d.body.appendChild(buildModal());
-})(document);
+	d.getElementById('video-intv-ad').addEventListener('ended', redirectTo, false);
+})(document, window);
