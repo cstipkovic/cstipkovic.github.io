@@ -3,6 +3,32 @@
     <head>
         <meta charset="utf-8">
         <title>Teste InTV Modal Ad</title>
+        <style media="screen">
+            /* This used to work for parent element of button divs */
+
+            /* But it is not enough now, below dont hide play button parent div */
+
+            *::-webkit-media-controls-panel {
+            display: none!important;
+            -webkit-appearance: none;
+            }
+
+            /* Old shadow dom for play button */
+
+            *::--webkit-media-controls-play-button {
+            display: none!important;
+            -webkit-appearance: none;
+            }
+
+            /* New shadow dom for play button */
+
+            /* This one works */
+
+            *::-webkit-media-controls-start-playback-button {
+            display: none!important;
+            -webkit-appearance: none;
+            }
+        </style>
     </head>
     <body>
         <script src="./intv-modal-ad.js" charset="utf-8"></script>
