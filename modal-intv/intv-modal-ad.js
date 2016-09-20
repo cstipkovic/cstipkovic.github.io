@@ -4,7 +4,7 @@
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-268918-3', 'auto');
-ga('send', 'pageview');
+ga('send', 'pageview', 'Access', 'page', 'Campanha One World');
 
 (function(d, w) {
 	function setCloseButton() {
@@ -63,12 +63,14 @@ ga('send', 'pageview');
 
 	function closeModal() {
 		d.getElementById('overlay-intv').style.display = "none";
+		ga('send', 'ended', 'Video', 'ended', 'Campanha One World');
 	}
 
 	function clickToPlay() {
 		var video = d.getElementById('video-intv-ad');
 
 		video.play();
+		ga('send', 'click', 'Video', 'play', 'Campanha One World');
 	}
 
 	d.body.appendChild(buildModal());
