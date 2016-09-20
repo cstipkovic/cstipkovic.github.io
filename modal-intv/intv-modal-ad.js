@@ -1,3 +1,11 @@
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-268918-3', 'auto');
+ga('send', 'pageview');
+
 (function(d, w) {
 	function setCloseButton() {
 		var closeButton = d.createElement('span');
@@ -16,7 +24,7 @@
 		// videoTag.setAttribute('controls', true);
 		videoTag.setAttribute('src', 'http://www.w3schools.com/tags/movie.mp4');
 		videoTag.setAttribute('type', 'video/mp4');
-		videoTag.setAttribute('poster', 'video-cover.jpg');
+		videoTag.setAttribute('poster', 'poster.png');
 
 		return videoTag;
 	}
