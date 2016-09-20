@@ -7,32 +7,40 @@ ga('create', 'UA-84499702-1', 'auto');
 ga('send', 'event', 'Pageview', 'access', 'AER_GIG_ONEWORLD');
 
 (function(d, w) {
+	function setCss() {
+    var link  = d.createElement('link');
+
+    link.rel  = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'intv-modal-ad.css';
+    link.media = 'all';
+
+		return link;
+	}
+
 	function setVideoAd() {
-		var contentDiv = d.createElement('div');
 		var videoTag = d.createElement('video');
 
-		contentDiv.setAttribute('style', 'border:none; width:100%;height:100%;')
-
 		videoTag.id = 'video-intv-ad';
-		// videoTag.setAttribute('controls', true);
 		videoTag.setAttribute('src', 'amarrotados.mp4');
 		videoTag.setAttribute('type', 'video/mp4');
-		videoTag.setAttribute('poster', 'latam-bg.jpg');
 
-		videoTag.setAttribute('style', 'max-width: 968px');
+		return videoTag;
+	}
 
-		contentDiv.appendChild(videoTag);
+	function setPreRoll() {
+		var preRoll = d.createElement('div');
 
-		return contentDiv;
+		preRoll.id = 'pre-roll';
+
+		return preRoll;
 	}
 
 	function setContentModal() {
 		var contentModal = d.createElement('div');
 
 		contentModal.classList.add('modal-content');
-		contentModal.setAttribute('style', 'margin: 15% auto; max-height: auto;max-width: 968px;');
-
-		// contentModal.appendChild(setCloseButton());
+		contentModal.appendChild(setPreRoll());
 		contentModal.appendChild(setVideoAd());
 
 		return contentModal;
@@ -43,7 +51,6 @@ ga('send', 'event', 'Pageview', 'access', 'AER_GIG_ONEWORLD');
 
 		overlayModal.id = 'overlay-intv';
 		overlayModal.classList.add('modal');
-		overlayModal.setAttribute('style', 'display: block; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.4);');
 
 		overlayModal.appendChild(setContentModal());
 
@@ -65,12 +72,16 @@ ga('send', 'event', 'Pageview', 'access', 'AER_GIG_ONEWORLD');
 
 	function clickToPlay() {
 		var video = d.getElementById('video-intv-ad');
+		var preRoll = d.getElementById('pre-roll');
 
+		preRoll.style.display = 'none';
+		video.style.display = 'block';
 		video.play();
 		ga('send', 'event', 'Video', 'ClickPlay', 'AER_GIG_ONEWORLD');
 	}
 
+	d.head.appendChild(setCss());
 	d.body.appendChild(buildModal());
 	d.getElementById('video-intv-ad').addEventListener('ended', closeModal, false);
-	d.getElementById('video-intv-ad').addEventListener('click', clickToPlay, false);
+	d.getElementById('pre-roll').addEventListener('click', clickToPlay, false);
 })(document, window);

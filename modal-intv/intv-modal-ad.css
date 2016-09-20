@@ -1,0 +1,124 @@
+*::-webkit-media-controls-panel,
+*::-webkit-media-controls-play-button,
+*::-webkit-media-controls-start-playback-button {
+    display: none!important;
+    -webkit-appearance: none;
+}
+
+#overlay-intv {
+  display: block;
+  position: fixed;
+  z-index: 2147483647;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.701961);
+}
+
+#overlay-intv .modal-content {
+  margin: auto;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  position: absolute;
+  width: 968px;
+  height: 498px;
+}
+
+.modal-content #pre-roll {
+  background: url('latam-bg.jpg') no-repeat center center;
+  position: absolute;
+  height: 498px;
+  width: 968px;
+  margin: auto;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+}
+
+.modal-content #video-intv-ad {
+  display: none;
+  margin: auto;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  position: absolute;
+  height: 498px;
+  width: 968px;
+}
+
+@media (min-width: 320px) and (orientation: portrait) {
+  #overlay-intv .modal-content {
+    height: 568px;
+    width: 320px;
+  }
+
+  .modal-content #pre-roll {
+    height: 568px;
+    width: 320px;
+  }
+
+  .modal-content #video-intv-ad {
+    height: 568px;
+    width: 320px;
+  }
+}
+
+@media (min-width: 568px) and (orientation: landscape) {
+  #overlay-intv .modal-content {
+    height: 320px;
+    width: 520px;
+  }
+
+  .modal-content #pre-roll {
+    background-size: contain;
+    height: 320px;
+    width: 520px;
+  }
+
+  .modal-content #video-intv-ad {
+    height: 320px;
+    width: 520px;
+  }
+}
+
+@media (min-width: 768px) and (orientation: portrait) {
+  #overlay-intv .modal-content {
+    height: 468px;
+    width: 720px;
+  }
+
+  .modal-content #pre-roll {
+    height: 468px;
+    width: 720px;
+  }
+
+  .modal-content #video-intv-ad {
+    height: 468px;
+    width: 720px;
+  }
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+  #overlay-intv .modal-content {
+    height: 468px;
+    width: 1000px;
+  }
+
+  .modal-content #pre-roll {
+    background-size: contain;
+    height: 468px;
+    width: 1000px;
+  }
+
+  .modal-content #video-intv-ad {
+    height: 468px;
+    width: 1000px;
+  }
+}
