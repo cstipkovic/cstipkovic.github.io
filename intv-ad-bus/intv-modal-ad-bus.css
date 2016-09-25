@@ -11,9 +11,10 @@ img {
   height: auto;
 }
 
-/*.bradesco-bg {
-  background: url('./bradesco-bg.jpg');
-}*/
+.bradesco-bg {
+  background: url('./background-desktop-tablet-1200x700.jpg') center fixed;
+  background-size: cover;
+}
 
 #overlay-intv {
   display: block;
@@ -35,8 +36,8 @@ img {
   right: 0px;
   left: 0px;
   position: absolute;
-  width: 968px;
-  height: 498px;
+  height: 640px;
+  width: 600px;
 }
 
 .modal-content #imageAd {
@@ -145,7 +146,7 @@ img {
   and (orientation: landscape) {
     #overlay-intv .modal-content,
     .modal-content #imageAd {
-      height: 341px;
+      height: 320px;
       width: 320px;
     }
 }

@@ -4,7 +4,8 @@
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-84499702-1', 'auto');
-ga('send', 'event', 'Pageview', 'access', 'AER_GIG_ONEWORLD');
+// Pageview
+ga('send', 'event', 'Pageview', 'PageAccess', 'AER_GIG_ONEWORLD');
 
 (function(d, w) {
 	function setCss() {
@@ -20,11 +21,16 @@ ga('send', 'event', 'Pageview', 'access', 'AER_GIG_ONEWORLD');
 
 	function setImageAd() {
 		var imageAd = d.createElement('img');
+		var linkAd = d.createElement('a');
 
 		imageAd.id = 'imageAd';
-		imageAd.setAttribute('src', './banner-teste-bradesco.jpg');
+		imageAd.setAttribute('src', './banner-mobile-600x640.jpg');
 
-		return imageAd;
+		linkAd.setAttribute('href', 'http://banco.bradesco/html/classic/promocoes/poupatroco/?utm_source=Campanha_Interna&utm_medium=Banner&utm_content=Home_PF_Poupa_Troco&utm_campaign=Home_PF_Poupa_Troco-Banner-Campanha_Interna');
+		linkAd.classList.add('linkAd');
+		linkAd.appendChild(imageAd);
+
+		return linkAd;
 	}
 
 	function setContentModal() {
@@ -48,23 +54,36 @@ ga('send', 'event', 'Pageview', 'access', 'AER_GIG_ONEWORLD');
 	}
 
 	function buildModal() {
+		// Impressao do banner
+		ga('send', 'event', 'Banner', 'BannerView', 'AER_GIG_ONEWORLD');
 		return setOverlayModal();
 	}
 
-	function redirectTo() {
-		w.location = 'http://intvbrasil.com.br';
+	function changeBG() {
+		d.body.classList.add('bradesco-bg');
 	}
 
 	function closeModal() {
 		d.getElementById('overlay-intv').style.display = "none";
-		ga('send', 'event', 'Video', 'VideoCompletion', 'AER_GIG_ONEWORLD');
+	}
+
+	function clickAd() {
+		// Click no banner
+		ga('send', 'event', 'Banner', 'BannerClick', 'AER_GIG_ONEWORLD');
 	}
 
 	function chronoModalClose() {
 		closeModal = w.setTimeout(closeModal, 5000);
 	}
 
-	d.head.appendChild(setCss());
-	d.body.appendChild(buildModal());
-	d.body.appendChild(chronoModalClose());
+	function _init() {
+		d.head.appendChild(setCss());
+		changeBG();
+
+		d.body.appendChild(buildModal());
+		d.getElementsByClassName('linkAd')[0].addEventListener('click', clickAd, false);
+		chronoModalClose();
+	}
+
+	_init();
 })(document, window);
