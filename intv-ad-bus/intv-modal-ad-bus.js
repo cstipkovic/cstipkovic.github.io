@@ -61,7 +61,7 @@ ga('send', 'event', 'Pageview', 'access', 'AER_GIG_ONEWORLD');
 	}
 
 	function chronoModalClose() {
-		closeModal = w.setTimeout(closeModal, 3000);
+		closeModal = w.setTimeout(closeModal, 5000);
 	}
 
 	d.head.appendChild(setCss());
