@@ -5,7 +5,7 @@
 
 ga('create', 'UA-84499702-1', 'auto');
 // Pageview
-ga('send', 'event', 'Pageview', 'PageAccess', 'AER_GIG_ONEWORLD');
+ga('send', 'event', 'Pageview', 'PageAccess', 'zoox-teste');
 
 (function(d, w) {
 	function setCss() {
@@ -55,7 +55,7 @@ ga('send', 'event', 'Pageview', 'PageAccess', 'AER_GIG_ONEWORLD');
 
 	function buildModal() {
 		// Impressao do banner
-		ga('send', 'event', 'Banner', 'BannerView', 'AER_GIG_ONEWORLD');
+		ga('send', 'event', 'Banner', 'BannerView', 'zoox-teste');
 		return setOverlayModal();
 	}
 
@@ -69,7 +69,7 @@ ga('send', 'event', 'Pageview', 'PageAccess', 'AER_GIG_ONEWORLD');
 
 	function clickAd() {
 		// Click no banner
-		ga('send', 'event', 'Banner', 'BannerClick', 'AER_GIG_ONEWORLD');
+		ga('send', 'event', 'Banner', 'BannerClick', 'zoox-teste');
 	}
 
 	function chronoModalClose() {
