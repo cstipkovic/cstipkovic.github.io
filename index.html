@@ -31,7 +31,7 @@
                 </header>
 
                 <section id="english" class="show">
-                    <p>Clauber Stipkovic is an <strong>web developer</strong>, <strong>mozilla community member</strong> (since 2004) and <strong><a href="https://reps.mozilla.org/u/cstipkovic/">mozilla reps</a></strong>, and <strong>student of Computer Science</strong> at <strong><a href="http://www.mackenzie.br/fci.html">College of computing and Informatics - Mackenzie University</a></strong>.</p>
+                    <p>Clauber Stipkovic is an <strong>web developer</strong>, <strong>mozilla community member</strong> (since 2004) and <strong><a href="https://reps.mozilla.org/u/cstipkovic/" class="link-mozilla-reps">mozilla reps</a></strong>, and <strong>student of Computer Science</strong> at <strong><a href="http://www.mackenzie.br/fci.html">College of computing and Informatics - Mackenzie University</a></strong>.</p>
                     <p>Currently he's <strong>front-end developer</strong> at <strong><a href="http://pagseguro.uol.com.br/">PagSeguro do UOL</a></strong> and building a <strong>tech startup</strong>. The easiest way to contact him is via e-mail at <strong>clauber.halic@gmail.com</strong>, besides finds him on <strong><a href="http://twitter.com/clauberhalic/">twitter</a></strong> and <strong><a href="http://br.linkedin.com/in/clauberstipkovic">Linkedin</a></strong>.</p>
                     <p>Clauber is Brazilian, lives in <strong><a href="http://en.wikipedia.org/wiki/Brazil">Brazil</a></strong>, but not for long. He's <span class="currentlyAge">&nbsp;</span> years old, made ââ<strong>technical course in computer science</strong> at <strong><a href="http://www.etesaopaulo.com.br/">Technical School of São Paulo State</a></strong>.</p>
                     <p>Clauber has a <strong><a href="http://clauber.coffeebreakers.org/blog/">blog</a></strong>, where he writes some tips and experiences on <strong>Internet</strong> and <strong>Computing</strong>! He also maintains <strong>codes of Open Source projects</strong> on <strong><a href="https://github.com/cstipkovic">GitHub</a></strong>, which contributes to some other projects!</p>
@@ -54,21 +54,11 @@
 
     <script>
         head.js(
-            "http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js",
-            "js/main.js",
-            "http://sawpf.com/1.0.js",
-            function () {
-                var _gaq = _gaq || [];
-                _gaq.push(['_setAccount', 'UA-268918-2']);
-                _gaq.push(['_setDomainName', 'cstipkovic.github.io']);
-                _gaq.push(['_trackPageview']);
-
-                (function() {
-                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-                })();
-            });
+            'http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js',
+            'js/main.js',
+            'http://sawpf.com/1.0.js',
+            'js/cs-ga.js'
+        );
     </script>
 </body>
 </html>
