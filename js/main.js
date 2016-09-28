@@ -41,5 +41,5 @@
 		d.getElementsByClassName('link-mozilla-reps')[0].addEventListener('click', linkMozillaReps, false);
 	}
 
-	w.load(_init());
+	w.onload(_init());
 })(document, window);
