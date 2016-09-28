@@ -38,7 +38,7 @@
 		setLanguageOnLoad();
 		changeLanguage();
 
-		d.getElementsByClassName('link-mozilla-reps')[0].addEventListner('click', linkMozillaReps, false);
+		d.getElementsByClassName('link-mozilla-reps')[0].addEventListener('click', linkMozillaReps, false);
 	}
 
 	w.load(_init());
