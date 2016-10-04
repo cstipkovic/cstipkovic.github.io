@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/cstipkovic/cstipkovic.github.io/issues"
   },
-  "homepage": "https://github.com/cstipkovic/cstipkovic.github.io#readme"
+  "homepage": "https://github.com/cstipkovic/cstipkovic.github.io#readme",
+  "devDependencies": {
+    "bower": "^1.7.9"
+  }
 }
