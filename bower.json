@@ -1,0 +1,22 @@
+{
+  "name": "cstipkovic.github.io",
+  "description": "My personal site",
+  "main": "index.js",
+  "authors": [
+    "Clauber Stipkovic"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/cstipkovic/cstipkovic.github.io",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "headjs": "^1.0.3",
+    "jquery": "^3.1.1"
+  }
+}

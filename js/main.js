@@ -1,3 +1,5 @@
+'use strict';
+
 (function(d, w) {
 	function setCurrentlyAge() {
 		var date = new Date();
