@@ -24,11 +24,11 @@ ga('send', 'pageview');
     var elemVideo = d.getElementById('video-teste');
     var videoPercentProgress = Math.ceil((elemVideo.currentTime / elemVideo.duration) * 100);
 
-    if (videoPercentProgress >== 1 && videoPercentProgress <== 25) {
+    if ((videoPercentProgress >= 1) && (videoPercentProgress <= 25)) {
       ga('send', 'event', 'CloseWindow', 'test-video', '25%');
     }
 
-    if (videoPercentProgress >== 26 && videoPercentProgress <== 50) {
+    if (videoPercentProgress >= 26 && videoPercentProgress <= 50) {
       ga('send', 'event', 'CloseWindow', 'test-video', '50%');
     }
   });
