@@ -4,7 +4,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-268918-2', 'auto');
-ga('send', 'pageview');
+ga('send', 'pageview' 'PageView', 'Access', 'test-video');
 
 (function(d, w) {
   function createVideo() {
@@ -25,13 +25,13 @@ ga('send', 'pageview');
     var videoPercentProgress = Math.ceil((elemVideo.currentTime / elemVideo.duration) * 100);
 
     if ((videoPercentProgress >= 1) && (videoPercentProgress <= 25)) {
-      ga('send', 'event', 'CloseWindow', 'test-video', '25%');
+      ga('send', 'event', 'CloseWindow', '25%', 'test-video');
     }
 
     if (videoPercentProgress >= 26 && videoPercentProgress <= 50) {
-      ga('send', 'event', 'CloseWindow', 'test-video', '50%');
+      ga('send', 'event', 'CloseWindow', '50%', 'test-video');
     }
-  });
+  }, false);
 
   // d.getElementById('video-teste').addEventListener('timeupdate', function () {
   //   var videoPercentProgress = Math.ceil((this.currentTime / this.duration) * 100);
