@@ -20,18 +20,22 @@ ga('send', 'pageview', 'PageView', 'Access', 'test-video');
 
   createVideo();
 
-  w.addEventListener('onbeforeload', function() {
+  w.onbeforeunload = function () {
     var elemVideo = d.getElementById('video-teste');
-    var videoPercentProgress = Math.ceil((elemVideo.currentTime / elemVideo.duration) * 100);
+    var progressPercent = Math.ceil((elemVideo.currentTime / elemVideo.duration) * 100);
 
-    if ((videoPercentProgress >= 1) && (videoPercentProgress <= 25)) {
+    if ((progressPercent >= 1) && (progressPercent <= 25)) {
       ga('send', 'event', 'CloseWindow', '25%', 'test-video');
     }
 
-    if (videoPercentProgress >= 26 && videoPercentProgress <= 50) {
+    if (progressPercent >= 26 && progressPercent <= 50) {
       ga('send', 'event', 'CloseWindow', '50%', 'test-video');
     }
-  }, false);
+
+    if (progressPercent >= 51 && progressPercent <= 75) {
+      ga('send', 'event', 'CloseWindow', '75%', 'test-video');
+    }
+  }
 
   // d.getElementById('video-teste').addEventListener('timeupdate', function () {
   //   var videoPercentProgress = Math.ceil((this.currentTime / this.duration) * 100);
