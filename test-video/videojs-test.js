@@ -36,15 +36,4 @@ ga('send', 'pageview', 'PageView', 'Access', 'test-video');
       ga('send', 'event', 'CloseWindow', '75%', 'test-video');
     }
   }
-
-  // d.getElementById('video-teste').addEventListener('timeupdate', function () {
-  //   var videoPercentProgress = Math.ceil((this.currentTime / this.duration) * 100);
-  //
-  //   console.log(videoPercentProgress);
-  //
-  //   // 25% a 49%
-  //   if ((videoPercentProgress >== 25) && (videoPercentProgress <== )) {
-  //     console.log('25');
-  //   }
-  // });
 })(document, window);
