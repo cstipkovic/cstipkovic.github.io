@@ -12,7 +12,7 @@ ga('send', 'pageview', 'PageView', 'Access', 'test-video');
 
     elemVideo.setAttribute('id', 'video-teste')
     elemVideo.setAttribute('src', 'http://www.w3schools.com/html/mov_bbb.mp4');
-    elemVideo.setAttribute('controls', false);
+		elemVideo.setAttribute('type', 'video/mp4');
 
     d.body.appendChild(elemVideo);
   }
