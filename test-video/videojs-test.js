@@ -41,5 +41,7 @@ ga('send', 'pageview', 'PageView', 'Access', 'test-video');
 	d.getElementById('video-teste').webkitExitFullScreen();
   }
 
+  d.getElementById('video-teste').play();
+
   d.getElementById('video-teste').addEventListener('ended', closeModal, false);
 })(document, window);
