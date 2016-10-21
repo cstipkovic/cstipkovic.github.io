@@ -46,5 +46,5 @@ ga('send', 'pageview', 'PageView', 'Access', 'test-video');
   }
 
   d.getElementById('video-teste').addEventListener('ended', closeModal, false);
-  d.getElementById('video-teste').addEventListener('onload', playVideo, false);
+  w.addEventListener('onload', playVideo, false);
 })(document, window);
