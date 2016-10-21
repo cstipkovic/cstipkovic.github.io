@@ -3,10 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>VideoJS Test</title>
-    <!-- <link rel="stylesheet" href="bower_components/video.js/dist/video-js.min.css" media="screen" title="no title"> -->
+    <style media="screen">
+        video::-webkit-media-controls {
+            display: none;
+        }
+
+        /* Could Use thise as well for Individual Controls */
+        video::-webkit-media-controls-play-button {}
+
+        video::-webkit-media-controls-volume-slider {}
+
+        video::-webkit-media-controls-mute-button {}
+
+        video::-webkit-media-controls-timeline {}
+
+        video::-webkit-media-controls-current-time-display {}
+    </style>
   </head>
   <body>
-    <!-- <script src="bower_components/video.js/dist/video.min.js" charset="utf-8"></script> -->
     <script src="./videojs-test.js" charset="utf-8"></script>
   </body>
 </html>

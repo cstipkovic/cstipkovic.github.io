@@ -8,31 +8,32 @@ ga('send', 'pageview', 'PageView', 'Access', 'test-video');
 
 (function(d, w) {
   function createVideo() {
-    var elemVideo = d.createElement('video');
+	var elemVideo = d.createElement('video');
 
-    elemVideo.setAttribute('id', 'video-teste')
-    elemVideo.setAttribute('src', 'http://www.w3schools.com/html/mov_bbb.mp4');
-		elemVideo.setAttribute('type', 'video/mp4');
+	elemVideo.setAttribute('id', 'video-teste')
+	elemVideo.setAttribute('src', 'http://www.w3schools.com/html/mov_bbb.mp4');
+	elemVideo.setAttribute('type', 'video/mp4');
+	elemVideo.setAttribute('controls', false);
 
-    d.body.appendChild(elemVideo);
+	d.body.appendChild(elemVideo);
   }
 
   createVideo();
 
   w.onbeforeunload = function () {
-    var elemVideo = d.getElementById('video-teste');
-    var progressPercent = Math.ceil((elemVideo.currentTime / elemVideo.duration) * 100);
+	var elemVideo = d.getElementById('video-teste');
+	var progressPercent = Math.ceil((elemVideo.currentTime / elemVideo.duration) * 100);
 
-    if ((progressPercent >= 1) && (progressPercent <= 25)) {
-      ga('send', 'event', 'CloseWindow', '25%', 'test-video');
-    }
+	if ((progressPercent >= 1) && (progressPercent <= 25)) {
+	  ga('send', 'event', 'CloseWindow', '25%', 'test-video');
+	}
 
-    if (progressPercent >= 26 && progressPercent <= 50) {
-      ga('send', 'event', 'CloseWindow', '50%', 'test-video');
-    }
+	if (progressPercent >= 26 && progressPercent <= 50) {
+	  ga('send', 'event', 'CloseWindow', '50%', 'test-video');
+	}
 
-    if (progressPercent >= 51 && progressPercent <= 75) {
-      ga('send', 'event', 'CloseWindow', '75%', 'test-video');
-    }
+	if (progressPercent >= 51 && progressPercent <= 75) {
+	  ga('send', 'event', 'CloseWindow', '75%', 'test-video');
+	}
   }
 })(document, window);
