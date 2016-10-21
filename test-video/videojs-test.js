@@ -36,4 +36,10 @@ ga('send', 'pageview', 'PageView', 'Access', 'test-video');
 	  ga('send', 'event', 'CloseWindow', '75%', 'test-video');
 	}
   }
+
+  function closeModal() {
+	d.getElementById('video-teste').webkitExitFullScreen();
+  }
+
+  d.getElementById('video-teste').addEventListener('ended', closeModal, false);
 })(document, window);
