@@ -41,6 +41,10 @@ ga('send', 'pageview', 'PageView', 'Access', 'test-video');
 	d.getElementById('video-teste').webkitExitFullScreen();
   }
 
+  function playVideo() {
+	  d.getElementById('video-teste').play();
+  }
+
   d.getElementById('video-teste').addEventListener('ended', closeModal, false);
-  d.getElementById('video-teste').play();
+  d.getElementById('playVideo').addEventListener('click', playVideo, false);
 })(document, window);
