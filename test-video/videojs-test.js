@@ -19,6 +19,7 @@ ga('send', 'pageview', 'PageView', 'Access', 'test-video');
   }
 
   createVideo();
+  d.getElementById('video-teste').play();
 
   w.onbeforeunload = function () {
 	var elemVideo = d.getElementById('video-teste');
@@ -40,8 +41,6 @@ ga('send', 'pageview', 'PageView', 'Access', 'test-video');
   function closeModal() {
 	d.getElementById('video-teste').webkitExitFullScreen();
   }
-
-  d.getElementById('video-teste').play();
 
   d.getElementById('video-teste').addEventListener('ended', closeModal, false);
 })(document, window);
