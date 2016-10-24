@@ -49,10 +49,10 @@ ga('send', 'pageview', 'PageView', 'Access', 'test_video');
 
   if ('onpagehide' in w) {
     alert('pagehide');
-    w.addEventListener('pagehide', playProgress, false);
+    w.addEventListener('onpagehide', playProgress, false);
   } else {
     alert('unload');
-    w.addEventListene('unload', playProgress, false);
+    w.addEventListene('onbeforeunload', playProgress, false);
   }
 
   d.getElementById('video-teste').addEventListener('ended', closeModal, false);
