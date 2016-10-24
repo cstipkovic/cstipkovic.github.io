@@ -21,20 +21,20 @@ ga('send', 'pageview', 'PageView', 'Access', 'test-video');
   createVideo();
 
   w.onbeforeunload = function () {
-	var elemVideo = d.getElementById('video-teste');
-	var progressPercent = Math.ceil((elemVideo.currentTime / elemVideo.duration) * 100);
+  	var elemVideo = d.getElementById('video-teste');
+  	var progressPercent = Math.ceil((elemVideo.currentTime / elemVideo.duration) * 100);
 
-	if ((progressPercent >= 1) && (progressPercent <= 25)) {
-	  ga('send', 'event', 'CloseWindow', '25%', 'test-video');
-	}
+  	if ((progressPercent >= 1) && (progressPercent <= 25)) {
+  	  ga('send', 'event', 'CloseWindow', '25%', 'test-video');
+  	}
 
-	if (progressPercent >= 26 && progressPercent <= 50) {
-	  ga('send', 'event', 'CloseWindow', '50%', 'test-video');
-	}
+  	if (progressPercent >= 26 && progressPercent <= 50) {
+  	  ga('send', 'event', 'CloseWindow', '50%', 'test-video');
+  	}
 
-	if (progressPercent >= 51 && progressPercent <= 75) {
-	  ga('send', 'event', 'CloseWindow', '75%', 'test-video');
-	}
+  	if (progressPercent >= 51 && progressPercent <= 75) {
+  	  ga('send', 'event', 'CloseWindow', '75%', 'test-video');
+  	}
   }
 
   function closeModal() {
