@@ -20,8 +20,8 @@ ga('send', 'pageview', 'PageView', 'Access', 'vai');
 
   createVideo();
 
-  function playProgress() {
-    alert('progress');
+  function playProgress(e) {
+    e.preventDefault();
   	var elemVideo = d.getElementById('video-teste');
   	var progressPercent = Math.ceil((elemVideo.currentTime / elemVideo.duration) * 100);
 
@@ -48,10 +48,8 @@ ga('send', 'pageview', 'PageView', 'Access', 'vai');
   }
 
   if ('onpagehide' in w) {
-    alert('pagehide');
     w.onpagehide = playProgress;
   } else {
-    alert('unload');
     w.onbeforeunload = playProgress;
   }
 
