@@ -21,7 +21,7 @@ ga('send', 'pageview', 'PageView', 'Access', 'test_video');
   createVideo();
 
   function playProgress() {
-    console.debug('teste');
+    alert('progress');
   	var elemVideo = d.getElementById('video-teste');
   	var progressPercent = Math.ceil((elemVideo.currentTime / elemVideo.duration) * 100);
 
