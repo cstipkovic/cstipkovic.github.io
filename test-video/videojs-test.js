@@ -8,14 +8,14 @@ ga('send', 'pageview', 'PageView', 'Access', 'test_video');
 
 (function(d, w) {
   function createVideo() {
-	var elemVideo = d.createElement('video');
+  	var elemVideo = d.createElement('video');
 
-	elemVideo.setAttribute('id', 'video-teste')
-	elemVideo.setAttribute('src', 'http://www.w3schools.com/html/mov_bbb.mp4');
-	elemVideo.setAttribute('type', 'video/mp4');
-	elemVideo.setAttribute('controls', false);
+  	elemVideo.setAttribute('id', 'video-teste')
+  	elemVideo.setAttribute('src', 'http://www.w3schools.com/html/mov_bbb.mp4');
+  	elemVideo.setAttribute('type', 'video/mp4');
+  	elemVideo.setAttribute('controls', false);
 
-	d.body.appendChild(elemVideo);
+  	d.body.appendChild(elemVideo);
   }
 
   createVideo();
@@ -47,12 +47,12 @@ ga('send', 'pageview', 'PageView', 'Access', 'test_video');
 	  d.getElementById('video-teste').play();
   }
 
-  if ('onpagehide' in w) {
-    alert('pagehide');
-    w.addEventListener('onpagehide', playProgress, false);
-  } else {
+  if ('onbeforeunload' in w) {
     alert('unload');
-    w.addEventListene('onbeforeunload', playProgress, false);
+    w.onbeforeunload = playProgress;
+  } else {
+    alert('pagehide');
+    w.onpagehide = playProgress;
   }
 
   d.getElementById('video-teste').addEventListener('ended', closeModal, false);
