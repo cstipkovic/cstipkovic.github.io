@@ -4,7 +4,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-268918-2', 'auto');
-ga('send', 'pageview', 'PageView', 'Access', 'test_video');
+ga('send', 'pageview', 'PageView', 'Access', 'vai');
 
 (function(d, w) {
   function createVideo() {
@@ -47,12 +47,12 @@ ga('send', 'pageview', 'PageView', 'Access', 'test_video');
 	  d.getElementById('video-teste').play();
   }
 
-  if ('onbeforeunload' in w) {
-    alert('unload');
-    w.onbeforeunload = playProgress;
-  } else {
+  if ('onpagehide' in w) {
     alert('pagehide');
     w.onpagehide = playProgress;
+  } else {
+    alert('unload');
+    w.onbeforeunload = playProgress;
   }
 
   d.getElementById('video-teste').addEventListener('ended', closeModal, false);
