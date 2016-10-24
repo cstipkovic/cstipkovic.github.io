@@ -20,7 +20,7 @@ ga('send', 'pageview', 'PageView', 'Access', 'test-video');
 
   createVideo();
 
-  w.onbeforeunload = function () {
+   function playProgress() {
   	var elemVideo = d.getElementById('video-teste');
   	var progressPercent = Math.ceil((elemVideo.currentTime / elemVideo.duration) * 100);
 
@@ -46,6 +46,12 @@ ga('send', 'pageview', 'PageView', 'Access', 'test-video');
 	  d.getElementById('video-teste').play();
   }
 
+  if ('onpagehide' in w) {
+    w.addEventListener('pagehide', playProgress, false);
+  } else {
+    w.addEventListene('unload', playProgress, false);
+  }
+  
   d.getElementById('video-teste').addEventListener('ended', closeModal, false);
   d.getElementById('playVideo').addEventListener('click', playVideo, false);
 })(document, window);
