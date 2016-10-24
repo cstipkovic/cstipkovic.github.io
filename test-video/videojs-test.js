@@ -38,7 +38,8 @@ ga('send', 'pageview', 'PageView', 'Access', 'test-video');
   }
 
   function closeModal() {
-	d.getElementById('video-teste').webkitExitFullScreen();
+    d.getElementById('video-teste').webkitExitFullScreen();
+    ga('send', 'event', 'VideoEnded', '100%', 'test-video');
   }
 
   function playVideo() {
