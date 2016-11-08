@@ -4,7 +4,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-268918-2', 'auto');
-ga('send', 'pageview', 'PageView', 'Access', 'vai');
+ga('send', 'pageview', 'PageView', 'Access', 'testeVideo');
 
 (function(d, w) {
   function createVideo() {
@@ -26,21 +26,21 @@ ga('send', 'pageview', 'PageView', 'Access', 'vai');
   	var progressPercent = Math.ceil((elemVideo.currentTime / elemVideo.duration) * 100);
 
   	if ((progressPercent >= 1) && (progressPercent <= 25)) {
-  	  ga('send', 'event', 'CloseWindow', '25%', 'test-video');
+  	  ga('send', 'event', 'CloseWindow', '25%', 'testeVideo');
   	}
 
   	if (progressPercent >= 26 && progressPercent <= 50) {
-  	  ga('send', 'event', 'CloseWindow', '50%', 'test-video');
+  	  ga('send', 'event', 'CloseWindow', '50%', 'testeVideo');
   	}
 
   	if (progressPercent >= 51 && progressPercent <= 75) {
-  	  ga('send', 'event', 'CloseWindow', '75%', 'test-video');
+  	  ga('send', 'event', 'CloseWindow', '75%', 'testeVideo');
   	}
   }
 
   function closeModal() {
     d.getElementById('video-teste').webkitExitFullScreen();
-    ga('send', 'event', 'VideoEnded', '100%', 'test-video');
+    ga('send', 'event', 'VideoEnded', '100%', 'testeVideo');
   }
 
   function playVideo() {
