@@ -26,17 +26,14 @@ ga('send', 'pageview', 'PageView', 'Access', 'testeVideo');
   	var progressPercent = Math.ceil((elemVideo.currentTime / elemVideo.duration) * 100);
 
   	if ((progressPercent >= 1) && (progressPercent <= 25)) {
-      alert(progressPercent);
   	  ga('send', 'event', 'CloseWindow', '25%', 'testeVideo');
   	}
 
   	if (progressPercent >= 26 && progressPercent <= 50) {
-      alert(progressPercent);
   	  ga('send', 'event', 'CloseWindow', '50%', 'testeVideo');
   	}
 
   	if (progressPercent >= 51 && progressPercent <= 75) {
-      alert(progressPercent);
   	  ga('send', 'event', 'CloseWindow', '75%', 'testeVideo');
   	}
   }
