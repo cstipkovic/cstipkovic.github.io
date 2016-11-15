@@ -53,6 +53,7 @@ ga('send', 'pageview', 'PageView', 'Access', 'testeVideo');
     w.onbeforeunload = playProgress;
   }
 
+  d.getElementById('video-teste'),addEventListener('webkitendfullscreen', playProgress, false);
   d.getElementById('video-teste').addEventListener('ended', closeModal, false);
   d.getElementById('playVideo').addEventListener('click', playVideo, false);
 })(document, window);
