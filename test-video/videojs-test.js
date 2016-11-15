@@ -21,8 +21,8 @@ ga('send', 'pageview', 'PageView', 'Access', 'testeVideo');
   createVideo();
 
   function playProgress() {
-    alert(1);
   	var elemVideo = d.getElementById('video-teste');
+    // webkitfullscreenchange
   	var progressPercent = Math.ceil((elemVideo.currentTime / elemVideo.duration) * 100);
 
   	if ((progressPercent >= 1) && (progressPercent <= 25)) {
@@ -56,7 +56,7 @@ ga('send', 'pageview', 'PageView', 'Access', 'testeVideo');
     w.onbeforeunload = playProgress;
   }
 
-  w.addEventListener('webkitexitfullscreen', playProgress, false);
+  d.getElementById('video-teste').addEventListener('webkitexitfullscreen', playProgress, false);
   d.getElementById('video-teste').addEventListener('ended', closeModal, false);
   d.getElementById('playVideo').addEventListener('click', playVideo, false);
 })(document, window);
