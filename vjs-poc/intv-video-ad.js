@@ -41,8 +41,9 @@ intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
 	function setVideoAd() {
 		var videoTag = d.createElement('video');
 		var videoSourceMp4 = d.createElement('source');
-		var urlPreroll = '${url_preroll}';
-		var urlPortrait = '${url_portrait}';
+		// var urlPreroll = '${url_preroll}';
+		var urlPreroll = 'https://s3-sa-east-1.amazonaws.com/static-intv/public/banner/intv/banner-intvwifiads.jpg';
+		var urlPortrait = 'amarrotados.mp4';
 
 		videoTag.id = 'video-intv-ad';
 		if (urlPreroll !== '') videoTag.setAttribute('poster', urlPreroll);
