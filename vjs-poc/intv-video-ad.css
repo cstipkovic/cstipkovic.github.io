@@ -1,0 +1,308 @@
+*::-webkit-media-controls-panel,
+*::-webkit-media-controls-play-button,
+*::-webkit-media-controls-start-playback-button {
+    display: none!important;
+    -webkit-appearance: none;
+}
+
+#overlay-intv {
+  display: block;
+  position: fixed;
+  z-index: 2147483647;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.701961);
+}
+
+#overlay-intv .modal-content {
+  /* Retirando os estilo para caso a pagina use o bootstrap */
+  background-color: transparent !important;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  /* ---------------------*/
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  position: absolute;
+  height: 640px;
+  width: 600px;
+  cursor: pointer;
+}
+
+.modal-content #video-intv-ad {
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  position: absolute;
+  width: 600px;
+  height: 640px;
+}
+
+.modal-content #imageAd {
+  position: absolute;
+  height: 640px;
+  width: 600px;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.video-js.vjs-playing .vjs-tech {
+  pointer-events: none;
+}
+
+/* ----------- iPhone 4 and 4S ----------- */
+/* Portrait */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (orientation: portrait) {
+    #overlay-intv .modal-content,
+    .modal-content #video-intv-ad {
+      height: 400px;
+      width: 280px;
+    }
+
+    .modal-content #imageAd {
+      height: 299px;
+      width: 280px;
+    }
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (orientation: landscape) {
+    #overlay-intv .modal-content,
+    .modal-content #video-intv-ad {
+      height: 320px;
+      width: 280px;
+    }
+
+    .modal-content #imageAd {
+      height: 299px;
+      width: 280px;
+    }
+}
+
+/* ----------- iPhone 5 and 5S ----------- */
+/* Portrait */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (orientation: portrait) {
+    #overlay-intv .modal-content,
+    .modal-content #video-intv-ad {
+      height: 460px;
+      width: 320px;
+    }
+
+    .modal-content #imageAd {
+      height: 299px;
+      width: 280px;
+    }
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (orientation: landscape) {
+    #overlay-intv .modal-content,
+    .modal-content #video-intv-ad {
+      height: 320px;
+      width: 280px;
+    }
+
+    .modal-content #imageAd {
+      height: 299px;
+      width: 280px;
+    }
+}
+
+/* ----------- iPhone 6 ----------- */
+/* Portrait */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (orientation: portrait) {
+    #overlay-intv .modal-content,
+    .modal-content #video-intv-ad {
+      height: 540px;
+      width: 340px;
+    }
+
+    .modal-content #imageAd {
+      height: 341px;
+      width: 320px;
+    }
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (orientation: landscape) {
+    #overlay-intv .modal-content,
+    .modal-content #video-intv-ad {
+      height: 540px;
+      width: 340px;
+    }
+
+    .modal-content #imageAd {
+      height: 341px;
+      width: 320px;
+    }
+}
+
+/* ----------- iPhone 6+ ----------- */
+/* Portrait */
+@media only screen
+  and (min-device-width: 414px)
+  and (max-device-width: 736px)
+  and (orientation: portrait) {
+    #overlay-intv .modal-content,
+    .modal-content #video-intv-ad {
+      height: 520px;
+      width: 360px;
+    }
+
+    .modal-content #imageAd {
+      height: 341px;
+      width: 320px;
+    }
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 414px)
+  and (max-device-width: 736px)
+  and (orientation: landscape) {
+    #overlay-intv .modal-content,
+    .modal-content #video-intv-ad {
+      height: 320px;
+      width: 300px;
+    }
+
+    .modal-content #imageAd {
+      height: 320px;
+      width: 320px;
+    }
+}
+
+/* ----------- Galaxy ----------- */
+/* Portrait */
+@media screen
+  and (device-width: 320px)
+  and (device-height: 640px)
+  and (orientation: portrait) {
+    #overlay-intv .modal-content,
+    .modal-content #video-intv-ad {
+      height: 299px;
+      width: 280px;
+    }
+
+    .modal-content #imageAd {
+      height: 299px;
+      width: 280px;
+    }
+}
+
+/* Landscape */
+@media screen
+  and (device-width: 320px)
+  and (device-height: 640px)
+  and (orientation: landscape) {
+    #overlay-intv .modal-content,
+    .modal-content #video-intv-ad {
+      height: 299px;
+      width: 280px;
+    }
+
+    .modal-content #imageAd {
+      height: 299px;
+      width: 280px;
+    }
+}
+
+/* ----------- iPad mini ----------- */
+/* Portrait */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (orientation: portrait) {
+    #overlay-intv .modal-content,
+    .modal-content #video-intv-ad {
+      height: 620px;
+      width: 360px;
+    }
+
+    .modal-content #imageAd {
+      height: 640px;
+      width: 600px;
+    }
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (orientation: landscape) {
+    #overlay-intv .modal-content,
+    .modal-content #video-intv-ad {
+      height: 660px;
+      width: 360px;
+    }
+
+    .modal-content #imageAd {
+      height: 640px;
+      width: 600px;
+    }
+}
+
+/* ----------- iPad 3 and 4 ----------- */
+/* Portrait */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (orientation: portrait) {
+    #overlay-intv .modal-content,
+    .modal-content #video-intv-ad {
+      height: 900px;
+      width: 600px;
+    }
+
+    .modal-content #imageAd {
+      height: 640px;
+      width: 600px;
+    }
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (orientation: landscape) {
+    #overlay-intv .modal-content,
+    .modal-content #pre-roll {
+      height: 768px;
+      width: 600px;
+    }
+
+    .modal-content #imageAd {
+      height: 640px;
+      width: 600px;
+    }
+}

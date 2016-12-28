@@ -13,7 +13,8 @@ intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
 
 		link.rel = 'stylesheet';
 		link.type = 'text/css';
-		link.href = 'https://d26ykw0gs9fv5u.cloudfront.net/public/css/intv-video-ad.css';
+		//link.href = 'https://d26ykw0gs9fv5u.cloudfront.net/public/css/intv-video-ad.css';
+		link.href = 'intv-video-ad.css';
 		link.media = 'all';
 
 		return link;
