@@ -110,7 +110,9 @@ intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
 	}
 
 	function clickToPlay() {
+    alert('func')
 		videojs(d.getElementById('video-intv-ad')).ready(function() {
+      alert('ready');
 		  this.play();
       intvWifiAdsGA('send', 'event', 'Video', 'ClickPlay', '${spot}');
 		});
