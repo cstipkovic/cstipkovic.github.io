@@ -177,6 +177,7 @@ intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
     d.head.appendChild(setCssVJS());
     d.head.appendChild(setVJSCssPlugin('https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/4.1.6/videojs.ads.min.css'));
 		d.head.appendChild(setCss());
+    d.body.appendChild(setVJS());
 
 		if ('onpagehide' in w) {
         w.onpagehide = playProgress;
@@ -185,12 +186,11 @@ intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
     }
 
     d.body.appendChild(buildModal());
-    d.body.appendChild(setVJS());
     // d.body.appendChild(setVJSPlugins('https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/4.1.6/videojs.ads.min.js'));
 
     loadPixelCount(d.body);
     // d.getElementById('video-intv-ad').addEventListener('webkitendfullscreen', playProgress, false);
-    // d.getElementById('video-intv-ad').addEventListener('click', clickToPlay, false);
+    d.getElementById('video-intv-ad').addEventListener('click', clickToPlay, false);
     d.getElementById('video-intv-ad').addEventListener('touchstart', clickToPlay, false);
     d.getElementById('video-intv-ad').addEventListener('ended', doRedirect, false);
 	}
