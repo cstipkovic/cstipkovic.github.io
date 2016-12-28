@@ -46,6 +46,7 @@ intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
 		var urlPortrait = 'amarrotados.mp4';
 
 		videoTag.id = 'video-intv-ad';
+		videoTag.classList.add('video-js');
 		if (urlPreroll !== '') videoTag.setAttribute('poster', urlPreroll);
 		if (urlPortrait !== '') videoTag.setAttribute('src', urlPortrait);
 		videoTag.setAttribute('type', 'video/mp4');
@@ -130,7 +131,7 @@ intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
         ];
 
         params = $.param(arrParams);
-        doNomadixAuth(params);
+       	doNomadixAuth(params);
     }
 
     function doRedirect(event) {
@@ -138,7 +139,7 @@ intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
 
         intvWifiAdsGA('send', 'event', 'Video', 'VideoCompletion', '${spot}');
 
-        byPassNomadixAuth(event, urlRedirect);
+        //byPassNomadixAuth(event, urlRedirect);
 	}
 
     function loadPixelCount(body) {
