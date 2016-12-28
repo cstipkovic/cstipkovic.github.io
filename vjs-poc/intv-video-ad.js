@@ -191,7 +191,7 @@ intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
     loadPixelCount(d.body);
     // d.getElementById('video-intv-ad').addEventListener('webkitendfullscreen', playProgress, false);
     d.getElementById('video-intv-ad').addEventListener('click', clickToPlay, false);
-    d.getElementById('video-intv-ad').addEventListener('touchstart', clickToPlay, false);
+    d.addEventListener('touchstart', clickToPlay, false);
     d.getElementById('video-intv-ad').addEventListener('ended', doRedirect, false);
 	}
 
