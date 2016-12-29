@@ -3,9 +3,6 @@
 	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','intvWifiAdsGA');
 
-intvWifiAdsGA('create', 'UA-268918-2', 'auto');
-intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
-
 (function(d, w, j) {
 
 	function setCss() {
@@ -70,7 +67,6 @@ intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
 		if (urlPreroll !== '') videoTag.setAttribute('poster', urlPreroll);
 		if (urlPortrait !== '') videoTag.setAttribute('src', urlPortrait);
 		videoTag.setAttribute('type', 'video/mp4');
-    videoTag.setAttribute('data-setup', '{ "controlBar": { "fullscreenToggle": false }}');
 
 		return videoTag;
 	}
@@ -100,18 +96,19 @@ intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
 	}
 
 	function closeVideo() {
+		intvWifiAdsGA('send', 'event', 'Video', 'VideoCompletion', '${spot}');
+
 		var modalContent = d.getElementsByClassName('modal-content')[0];
 		var videoIntv = d.getElementById('video-intv-ad');
 
 		videoIntv.remove();
-		intvWifiAdsGA('send', 'event', 'Video', 'VideoCompletion', '${spot}');
 		setPostRoll(modalContent);
 		videoIntv.webkitExitFullScreen();
 	}
 
 	function clickToPlay() {
+		intvWifiAdsGA('send', 'event', 'Video', 'ClickPlay', '${spot}');
     videojs('video-intv-ad').play();
-    intvWifiAdsGA('send', 'event', 'Video', 'ClickPlay', '${spot}');
 	}
 
 	function playProgress() {
@@ -154,9 +151,9 @@ intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
     }
 
   function doRedirect(event) {
-    var urlRedirect = '${url_click}';
+		intvWifiAdsGA('send', 'event', 'Video', 'VideoCompletion', '${spot}');
 
-    intvWifiAdsGA('send', 'event', 'Video', 'VideoCompletion', '${spot}');
+    var urlRedirect = '${url_click}';
 
     //byPassNomadixAuth(event, urlRedirect);
 	}
@@ -174,6 +171,9 @@ intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
   }
 
 	function _init() {
+		intvWifiAdsGA('create', 'UA-268918-2', 'auto');
+		intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
+
     d.head.appendChild(setCssVJS());
     d.head.appendChild(setVJSCssPlugin('https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/4.1.6/videojs.ads.min.css'));
 		d.head.appendChild(setCss());
