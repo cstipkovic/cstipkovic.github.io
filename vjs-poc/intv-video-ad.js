@@ -183,9 +183,9 @@
 		intvWifiAdsGA('create', 'UA-268918-2', 'auto');
 		intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
 
-    d.head.appendChild(setCssVJS());
     // d.head.appendChild(setVJSCssPlugin('https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/4.1.6/videojs.ads.min.css'));
 		d.head.appendChild(setCss());
+		d.head.appendChild(setCssVJS());
     d.body.appendChild(setVJS());
 		d.body.appendChild(setVJSPlugins('https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/4.0.3/videojs-contrib-hls.min.js'));
 
