@@ -109,10 +109,15 @@
 	function clickToPlay() {
 		d.getElementById('video-intv-ad').removeEventListener('click', clickToPlay, false);
     d.getElementById('video-intv-ad').removeEventListener('touchstart', clickToPlay, false);
-		console.log('test');
 
 		intvWifiAdsGA('send', 'event', 'Video', 'ClickPlay', '${spot}');
-    videojs('video-intv-ad').play();
+    videojs('video-intv-ad', {
+			html5: {
+  			hls: {
+    			withCredentials: true
+  			}
+			}
+		}).play();
 	}
 
 	function playProgress() {
@@ -179,9 +184,10 @@
 		intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
 
     d.head.appendChild(setCssVJS());
-    d.head.appendChild(setVJSCssPlugin('https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/4.1.6/videojs.ads.min.css'));
+    // d.head.appendChild(setVJSCssPlugin('https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/4.1.6/videojs.ads.min.css'));
 		d.head.appendChild(setCss());
     d.body.appendChild(setVJS());
+		d.body.appendChild(setVJSPlugins('https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/4.0.3/videojs-contrib-hls.min.js'));
 
 		if ('onpagehide' in w) {
         w.onpagehide = playProgress;
@@ -190,7 +196,6 @@
     }
 
     d.body.appendChild(buildModal());
-    // d.body.appendChild(setVJSPlugins('https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-ads/4.1.6/videojs.ads.min.js'));
 
     loadPixelCount(d.body);
     // d.getElementById('video-intv-ad').addEventListener('webkitendfullscreen', playProgress, false);
