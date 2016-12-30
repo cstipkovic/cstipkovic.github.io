@@ -107,7 +107,7 @@
 	}
 
 	function clickToPlay() {
-		console.log('teste');
+
 		intvWifiAdsGA('send', 'event', 'Video', 'ClickPlay', '${spot}');
     videojs('video-intv-ad').play();
 	}
@@ -192,7 +192,7 @@
     loadPixelCount(d.body);
     // d.getElementById('video-intv-ad').addEventListener('webkitendfullscreen', playProgress, false);
     d.getElementById('video-intv-ad').addEventListener('click', clickToPlay, false);
-    d.addEventListener('touchstart', clickToPlay, false);
+    d.getElementById('video-intv-ad').addEventListener('touchstart', clickToPlay, false);
     d.getElementById('video-intv-ad').addEventListener('ended', doRedirect, false);
 	}
 
