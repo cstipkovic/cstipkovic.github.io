@@ -109,6 +109,7 @@
 	function clickToPlay() {
 		d.getElementById('video-intv-ad').removeEventListener('click', clickToPlay, false);
     d.getElementById('video-intv-ad').removeEventListener('touchstart', clickToPlay, false);
+		console.log('test');
 
 		intvWifiAdsGA('send', 'event', 'Video', 'ClickPlay', '${spot}');
     videojs('video-intv-ad').play();
