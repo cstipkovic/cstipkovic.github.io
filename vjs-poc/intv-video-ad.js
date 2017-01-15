@@ -3,6 +3,9 @@
 	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','intvWifiAdsGA');
 
+intvWifiAdsGA('create', 'UA-268918-2', 'auto');
+intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
+
 (function(d, w, j) {
 
 	function setCss() {
@@ -10,60 +13,38 @@
 
 		link.rel = 'stylesheet';
 		link.type = 'text/css';
-		//link.href = 'https://d26ykw0gs9fv5u.cloudfront.net/public/css/intv-video-ad.css';
-		link.href = 'intv-video-ad.css';
+		link.href = 'https://d26ykw0gs9fv5u.cloudfront.net/public/css/intv-video-ad.css';
 		link.media = 'all';
 
 		return link;
 	}
 
-  function setCssVJS() {
-    var linkVJS = d.createElement('link');
+    function setCssVJS() {
+        var linkVJS = d.createElement('link');
 
-    linkVJS.rel = 'stylesheet';
-    linkVJS.type = 'text/css';
-    linkVJS.href = 'http://vjs.zencdn.net/5.8.8/video-js.css';
-    linkVJS.media = 'all';
+        linkVJS.rel = 'stylesheet';
+        linkVJS.type = 'text/css';
+        linkVJS.href = 'https://cdnjs.cloudflare.com/ajax/libs/video.js/5.15.1/video-js.min.css';
+        linkVJS.media = 'all';
 
-    return linkVJS;
-  }
+        return linkVJS;
+    }
 
-  function setVJS() {
-    var scriptVJS = d.createElement('script');
+    function setVJS() {
+        var scriptVJS = d.createElement('script');
 
-    scriptVJS.setAttribute('src', 'http://vjs.zencdn.net/5.11/video.min.js');
+        scriptVJS.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/video.js/5.15.1/video.min.js');
 
-    return scriptVJS;
-  }
-
-  function setVJSPlugins(url) {
-    var vjsPlugin = d.createElement('script');
-
-    vjsPlugin.setAttribute('src', url);
-
-    return vjsPlugin;
-  }
-
-  function setVJSCssPlugin(url) {
-    var vjsCssPlugin = d.createElement('link');
-
-    vjsCssPlugin.rel = 'stylesheet';
-    vjsCssPlugin.type = 'text/css';
-    vjsCssPlugin.href = url;
-    vjsCssPlugin.media = 'all';
-
-    return vjsCssPlugin;
-  }
+        return scriptVJS;
+    }
 
 	function setVideoAd() {
 		var videoTag = d.createElement('video');
 		var videoSourceMp4 = d.createElement('source');
-		// var urlPreroll = '${url_preroll}';
 		var urlPreroll = 'https://s3-sa-east-1.amazonaws.com/static-intv/public/banner/intv/banner-intvwifiads.jpg';
 		var urlPortrait = 'amarrotados.mp4';
 
 		videoTag.id = 'video-intv-ad';
-		videoTag.classList.add('video-js');
 		if (urlPreroll !== '') videoTag.setAttribute('poster', urlPreroll);
 		if (urlPortrait !== '') videoTag.setAttribute('src', urlPortrait);
 		videoTag.setAttribute('type', 'video/mp4');
@@ -96,28 +77,20 @@
 	}
 
 	function closeVideo() {
-		intvWifiAdsGA('send', 'event', 'Video', 'VideoCompletion', '${spot}');
-
 		var modalContent = d.getElementsByClassName('modal-content')[0];
 		var videoIntv = d.getElementById('video-intv-ad');
 
 		videoIntv.remove();
+		intvWifiAdsGA('send', 'event', 'Video', 'VideoCompletion', '${spot}');
 		setPostRoll(modalContent);
 		videoIntv.webkitExitFullScreen();
 	}
 
 	function clickToPlay() {
-		d.getElementById('video-intv-ad').removeEventListener('click', clickToPlay, false);
-    d.getElementById('video-intv-ad').removeEventListener('touchstart', clickToPlay, false);
+		var video = d.getElementById('video-intv-ad');
 
+		video.play();
 		intvWifiAdsGA('send', 'event', 'Video', 'ClickPlay', '${spot}');
-    videojs('video-intv-ad', {
-			html5: {
-  			hls: {
-    			withCredentials: true
-  			}
-			}
-		}).play();
 	}
 
 	function playProgress() {
@@ -156,51 +129,33 @@
         ];
 
         params = $.param(arrParams);
-       	doNomadixAuth(params);
+        doNomadixAuth(params);
     }
 
-  function doRedirect(event) {
-		intvWifiAdsGA('send', 'event', 'Video', 'VideoCompletion', '${spot}');
+    function doRedirect(event) {
+	var urlRedirect = '${url_click}';
 
-    var urlRedirect = '${url_click}';
+        intvWifiAdsGA('send', 'event', 'Video', 'VideoCompletion', '${spot}');
 
-    //byPassNomadixAuth(event, urlRedirect);
+        byPassNomadixAuth(event, urlRedirect);
 	}
 
-  function loadPixelCount(body) {
-      var urlTracking = '${url_tracking}';
-
-      if (urlTracking && urlTracking !== '') {
-          var pixelCount = d.createElement('img');
-
-          pixelCount.id = 'intv-imagePixelCount';
-          pixelCount.setAttribute('src', urlTracking);
-          body.appendChild(pixelCount);
-      }
-  }
-
 	function _init() {
-		intvWifiAdsGA('create', 'UA-268918-2', 'auto');
-		intvWifiAdsGA('send', 'event', 'Pageview', 'access', '${spot}');
-
+        d.head.appendChild(setCssVJS());
 		d.head.appendChild(setCss());
-		d.head.appendChild(setCssVJS());
-    d.body.appendChild(setVJS());
-		d.body.appendChild(setVJSPlugins('https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/4.0.3/videojs-contrib-hls.min.js'));
 
 		if ('onpagehide' in w) {
-        w.onpagehide = playProgress;
-    } else {
-        w.onbeforeunload = playProgress;
-    }
+            w.onpagehide = playProgress;
+        } else {
+            w.onbeforeunload = playProgress;
+        }
 
-    d.body.appendChild(buildModal());
+        d.body.appendChild(setVJS());
+        d.body.appendChild(buildModal());
 
-    loadPixelCount(d.body);
-    // d.getElementById('video-intv-ad').addEventListener('webkitendfullscreen', playProgress, false);
-    d.getElementById('video-intv-ad').addEventListener('click', clickToPlay, false);
-    d.getElementById('video-intv-ad').addEventListener('touchstart', clickToPlay, false);
-    d.getElementById('video-intv-ad').addEventListener('ended', doRedirect, false);
+        d.getElementById('video-intv-ad').addEventListener('webkitendfullscreen', playProgress, false);
+        d.getElementById('video-intv-ad').addEventListener('click', clickToPlay, false);
+        d.getElementById('video-intv-ad').addEventListener('ended', doRedirect, false);
 	}
 
 	_init();
