@@ -52,7 +52,7 @@
 						sendbeacon('start', true);
 
 					} else if (__indexOf.call(eventsToTrack, "percentsPlayed") >= 0 && percentPlayed !== 0) {
-						sendbeacon(percentPlayed, true, percent);
+						sendbeacon(percentsPlayedInterval, true, percent);
 
 					}
 					if (percentPlayed > 0) {
