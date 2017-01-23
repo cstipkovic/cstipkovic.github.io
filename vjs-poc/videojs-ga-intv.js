@@ -126,8 +126,8 @@
 
 		};
 		sendbeacon = function(action, nonInteraction, value) {
-			if (window.ga) {
-				ga('send', 'event', {
+			if (window.intvWifiAdsGA) {
+				intvWifiAdsGA('send', 'event', {
 					'eventCategory': eventCategory,
 					'eventAction': action,
 					'eventLabel': eventLabel,
