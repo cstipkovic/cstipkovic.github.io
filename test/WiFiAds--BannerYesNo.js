@@ -331,25 +331,6 @@ var CustomElement = {
 };
 
 /**
- * @class
- *
- * @description Create a div container object
- */
-function Container() {
-  this.element = DOMElement('div', '__container');
-}
-
-/**
- * @method
- * @param {HTMLElement} parent DOM element to append to
- *
- * @description append DOM element to parent
- */
-Container.prototype.render = function(parent) {
-  parent.appendChild(this.element);
-};
-
-/**
  * @name Title
  * @class
  *
@@ -374,6 +355,25 @@ function Title() {
  */
 Title.prototype.render = function(parent) {
   parent.appendChild(this.titleContent);
+};
+
+/**
+ * @class
+ *
+ * @description Create a div container object
+ */
+function Container() {
+  this.element = DOMElement('div', '__container');
+}
+
+/**
+ * @method
+ * @param {HTMLElement} parent DOM element to append to
+ *
+ * @description append DOM element to parent
+ */
+Container.prototype.render = function(parent) {
+  parent.appendChild(this.element);
 };
 
 /**
@@ -502,45 +502,6 @@ Navigation.prototype.redirectTo = function (event) {
 }
 
 /**
-* Delay redirect of campaign and show counter on button
-* @param {number} seconds number of seconds
-* @param {boolean} closeModal whether to close the modal or not
-* @param {function} clearCallback function to clear the dom if modal will close
-*/
-Navigation.prototype.delayedRedirect = function (seconds, closeModal, clearCallback) {
-    var secondsLeft = seconds;
-    var interval = setInterval(function () {
-        if (secondsLeft === 1) {
-            this.enable();
-            clearInterval(interval);
-            if (closeModal) {
-                clearCallback();
-            } else {
-                this.addRedirect();
-            }
-        } else {
-            secondsLeft--;
-            var secondsString =
-            secondsLeft > 1 ?
-            l10n().SecondsConnect :
-            l10n().SecondConnect;
-            this.redirectButton.innerHTML = secondsLeft + secondsString;
-        }
-    }.bind(this), 1000);
-};
-
-// TODO: Arrumar a posição para essa função
-Navigation.prototype.setHiddenRedirectTo = function (campaignUrlRedirect) {
-    var inputRedirectUrl = DOMElement('input', '');
-
-    inputRedirectUrl.setAttribute('type', 'hidden');
-    inputRedirectUrl.setAttribute('id', 'intv-url-redirect');
-    inputRedirectUrl.setAttribute('value', campaignUrlRedirect);
-
-    document.body.appendChild(inputRedirectUrl);
-};
-
-/**
  * @class
  *
  * @param {string} bannerUrl url to banner campaign image
@@ -638,50 +599,47 @@ BannerCampaign.prototype.handleLoad = function () {
 };
 
 
-var urlCSS = 'https://s3-sa-east-1.amazonaws.com/static-intv/public/css/v3/wifi-ads--banner.css';
+//  Banner CSS
+var urlCSS = 'https://d26ykw0gs9fv5u.cloudfront.net/public/css/v3/wifi-ads--banner.css';
 
-// Creatives
-var bgModalUrl = '${url_bg_mobile}';
-var bannerCampaignUrl = '${url_banner_campaign_mobile}';
-var urlRedirectCampaign = '${tracking_redirect_url}';
-
-// Links test
-var bgModalUrl = '';
-var bannerCampaignUrl = 'https://d26ykw0gs9fv5u.cloudfront.net/public/banner/ministerioSaude/2018/12/aids/campaign.jpg';
-var urlRedirectCampaign = 'http://intvbrasil.com.br';
-
-var fontColor = '#165598';
-
-// Append InteliFi CSS in the page
+// Append CSS to the page
 new LinkCSS(urlCSS).render(document.head);
 
+// Set tracker objects
 var thirdPartyTrackers = {
-    'page_view': '',
-    'impression_campaign': '',
-    'click_campaign': ''
+    'page_view': '${page_view_tracker}' || '',
+    'impression_campaign': '${impression_tracker}' || '',
+    'click_campaign': '${click_campaign_tracker}' || ''
 };
 
 var pixelTrackers = {
-    'page_view': '',
-    'impression_campaign': '${impression_tracker}',
-    'click_campaign': ''
+    'page_view': '' || '',
+    'impression_campaign': '${impression_tracker}' || '',
+    'click_campaign': '' || ''
 };
 
-// Send PAGE_VIEW tracker
-// Callback render Banner Campaign to body
+// Set creatives
+var bgModalUrl = '${url_bg_mobile}';
+var bannerCampaignUrl = '${url_banner_campaign_mobile}';
+var urlRedirect = '${tracking_redirect_url}';
+
+// Links test
+// var bgModalUrl = 'https://d3e4vssuu3p2rj.cloudfront.net/admanager/dev/public/creative/109/BACKGROUND_IMG_DEFAULT';
+// var bannerCampaignUrl = 'https://d26ykw0gs9fv5u.cloudfront.net/public/banner/ministerioSaude/2018/12/aids/campaign.jpg';
+// var urlRedirect = 'https://inteli.fi';
+
+// Callback the render Banner Campaign to body
 Tracker.sendEvent(
     PAGE_VIEW,
     thirdPartyTrackers.page_view,
     pixelTrackers.page_view,
     function () {
-    new BannerCampaign(
-        bannerCampaignUrl,
-        urlRedirectCampaign,
-        bgModalUrl,
-        false,
-        fontColor,
-        true
-    ).render(document.body);
-});
+        new BannerCampaign(
+            bannerCampaignUrl,
+            urlRedirect,
+            bgModalUrl
+        ).render(document.body);
+    }
+);
 
 })();
