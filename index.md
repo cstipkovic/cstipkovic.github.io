@@ -1,3 +1,0 @@
-## Clauber Stipkovic
-
-Teste
