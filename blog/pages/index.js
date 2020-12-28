@@ -1,5 +1,5 @@
 const Blog = () => {
-    return <div>Welcome to this blog, using Next.js</div>
+  return <div>Teste!!!</div>
 };
 
-export default Blog
+export default Blog;
