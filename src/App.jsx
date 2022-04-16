@@ -1,21 +1,21 @@
-import React from "react";
+import React from 'react';
 
-import Main from "./components/Main/Main";
-import Footer from "./components/Footer/Footer";
+import Main from './components/Main/Main';
+import Footer from './components/Footer/Footer';
 
-import "./App.css";
+import './App.css';
 
 function App() {
-  return (
-    <>
-      {/* <div className="main-container">
+    return (
+        <>
+            {/* <div className="main-container">
         <div className="main wrapper clearfix"> */}
-      <Main />
-      {/* </div>
+            <Main />
+            {/* </div>
       </div> */}
-      <Footer />
-    </>
-  );
+            <Footer />
+        </>
+    );
 }
 
 export default App;
