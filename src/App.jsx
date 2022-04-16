@@ -1,21 +1,21 @@
 import React from 'react';
 
-import Main from './components/Main/Main';
-import Footer from './components/Footer/Footer';
+import Home from './Pages/Home';
+import Blog from './Pages/Blog';
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
 
-function App() {
+const App = () => {
     return (
-        <>
-            {/* <div className="main-container">
-        <div className="main wrapper clearfix"> */}
-            <Main />
-            {/* </div>
-      </div> */}
-            <Footer />
-        </>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/blog" element={<Blog />} />
+            </Routes>
+        </BrowserRouter>
     );
-}
+};
 
 export default App;
